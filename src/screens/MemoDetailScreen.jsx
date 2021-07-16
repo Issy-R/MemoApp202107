@@ -4,10 +4,11 @@ import {
 } from 'react-native';
 import AppBar from '../components/AppBar';
 import CircleBotton from '../components/CircleBotton';
+import KeyboardSafeView from '../components/KeyboardSafeView';
 
 export default function MemoDetailScreen() {
   return (
-    <View style={styles.container}>
+    <KeyboardSafeView style={styles.container}>
       <AppBar />
       <View style={styles.memoHeader}>
         <Text style={styles.memoTitle}>買い物リスト</Text>
@@ -21,7 +22,7 @@ export default function MemoDetailScreen() {
         </Text>
       </ScrollView>
       <CircleBotton style={{ top: 160, bottom: 'auto' }} name="edit-2" />
-    </View>
+    </KeyboardSafeView>
   );
 }
 
