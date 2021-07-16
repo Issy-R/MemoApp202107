@@ -13,7 +13,7 @@ export default function MemoDetailScreen() {
       <View style={styles.inputContainer}>
         <TextInput value="買い物リスト" multiline style={styles.input} />
       </View>
-      <CircleBotton name="check" />
+      <CircleBotton name="check" onPress={() => { }} />
     </KeyboardSafeView>
   );
 }
