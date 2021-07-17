@@ -8,7 +8,6 @@ import Button from '../components/Button';
 export default function SignUpScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   function handlePress() {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
