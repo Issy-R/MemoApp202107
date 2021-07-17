@@ -2,14 +2,13 @@ import React from 'react';
 import {
   StyleSheet, View, Text, ScrollView,
 } from 'react-native';
-import AppBar from '../components/AppBar';
 import CircleBotton from '../components/CircleBotton';
 import KeyboardSafeView from '../components/KeyboardSafeView';
 
-export default function MemoDetailScreen() {
+export default function MemoDetailScreen(props) {
+  const { navigation } = props;
   return (
     <KeyboardSafeView style={styles.container}>
-      <AppBar />
       <View style={styles.memoHeader}>
         <Text style={styles.memoTitle}>買い物リスト</Text>
         <Text style={styles.memoDate}>2021年7月15日 10:00</Text>
@@ -21,7 +20,11 @@ export default function MemoDetailScreen() {
           本文様なので使い方を間違えると不自然に見えることもあります。
         </Text>
       </ScrollView>
-      <CircleBotton style={{ top: 160, bottom: 'auto' }} name="edit-2" />
+      <CircleBotton
+        style={{ top: 60, bottom: 'auto' }}
+        name="edit-2"
+        onPress={() => { navigation.navigate('Edit'); }}
+      />
     </KeyboardSafeView>
   );
 }

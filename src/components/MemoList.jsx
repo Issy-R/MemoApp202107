@@ -1,39 +1,30 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
-  StyleSheet, Text, View, TouchableOpacity,
+  StyleSheet, Text, View, TouchableOpacity, Alert,
 } from 'react-native';
+
 import { Feather } from '@expo/vector-icons';
 
 export default function MemoList() {
+  const navigation = useNavigation();
   return (
     <View>
-      <View style={styles.memoListItem}>
+      <TouchableOpacity
+        style={styles.memoListItem}
+        onPress={() => { navigation.navigate('Detail'); }}
+      >
         <View>
           <Text style={styles.memoListItemTitle}>買い物リスト</Text>
           <Text style={styles.memoListItemDate}>2021年7月15日 22:00</Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => { Alert.alert('are you sure?'); }}
+          style={styles.memoDelete}
+        >
           <Feather name="x" size={16} color="#b0b0b0" />
         </TouchableOpacity>
-      </View>
-      <View style={styles.memoListItem}>
-        <View>
-          <Text style={styles.memoListItemTitle}>買い物リスト</Text>
-          <Text style={styles.memoListItemDate}>2021年7月15日 22:00</Text>
-        </View>
-        <TouchableOpacity>
-          <Feather name="x" size={16} color="#b0b0b0" />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.memoListItem}>
-        <View>
-          <Text style={styles.memoListItemTitle}>買い物リスト</Text>
-          <Text style={styles.memoListItemDate}>2021年7月15日 22:00</Text>
-        </View>
-        <TouchableOpacity>
-          <Feather name="x" size={16} color="#b0b0b0" />
-        </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -57,5 +48,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 16,
     color: '#848484',
+  },
+  memoDelete: {
+    padding: 8,
   },
 });
