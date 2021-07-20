@@ -11,9 +11,7 @@ export default function SignUpScreen({ navigation }) {
   const [password, setPassword] = useState('');
   function handlePress() {
     firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        const { user } = userCredential;
-        console.log(user.uid);
+      .then(() => {
         navigation.reset({
           index: 0,
           routes: [{ name: 'List' }],
@@ -21,7 +19,6 @@ export default function SignUpScreen({ navigation }) {
       })
       .catch((error) => {
         const errorMsg = translateErrors(error.code);
-        console.log(error.code, error.message);
         Alert.alert(errorMsg.title, errorMsg.desctiption);
       });
   }
