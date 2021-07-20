@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text, Alert } from 'react-native';
+import {
+  StyleSheet, TouchableOpacity, Text, Alert,
+} from 'react-native';
 import firebase from 'firebase';
 import { useNavigation } from '@react-navigation/native';
 
